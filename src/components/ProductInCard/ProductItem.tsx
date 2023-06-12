@@ -1,0 +1,62 @@
+import React from "react";
+
+const ProductItem = (props: any): JSX.Element => {
+  const calculateTotalPrice = (): number => {
+    return props.price * props.amount;
+  };
+
+  return (
+    <tr className="border border-neutral-500 md:h-20">
+      <td className="px-4 py-2 text-center">{props.index + 1}</td>
+      <td className="px-4 py-2 text-center truncate">
+        {props.title.substring(0, 20)} ...
+      </td>
+      <td className="px-4 py-2 text-center truncate">
+        {/* {item.description.substring(0, 40)}... */}
+        {props.category.substring(0, 20)}...
+      </td>
+      <td className="px-4 py-2 text-center">
+        <div className="flex items-center justify-center">
+          <button onClick={props.onDecrease}>
+            <div className="rounded-full bg-red-500 text-white w-6 h-6 flex items-center justify-center">
+              -
+            </div>
+          </button>
+          <p className="mx-2">{props.amount}</p>
+          <button onClick={props.onIncrease}>
+            <div className="rounded-full bg-blue-500 text-white w-6 h-6 flex items-center justify-center">
+              +
+            </div>
+          </button>
+        </div>
+      </td>
+      <td className="px-4 py-2 text-center">{props.price}$</td>
+      <td className="px-4 py-2 text-center">
+        {calculateTotalPrice().toFixed(2)}$
+      </td>
+      <td className="px-4 py-2 text-center">
+        <button onClick={props.onDelete}>
+          <div className="rounded-full bg-red-500 text-white w-6 h-6 flex items-center justify-center">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M9 2C8.62123 2 8.27497 2.214 8.10557 2.55279L7.38197 4H4C3.44772 4 3 4.44772 3 5C3 5.55228 3.44772 6 4 6L4 16C4 17.1046 4.89543 18 6 18H14C15.1046 18 16 17.1046 16 16V6C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H12.618L11.8944 2.55279C11.725 2.214 11.3788 2 11 2H9ZM7 8C7 7.44772 7.44772 7 8 7C8.55228 7 9 7.44772 9 8V14C9 14.5523 8.55228 15 8 15C7.44772 15 7 14.5523 7 14V8ZM12 7C11.4477 7 11 7.44772 11 8V14C11 14.5523 11.4477 15 12 15C12.5523 15 13 14.5523 13 14V8C13 7.44772 12.5523 7 12 7Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+      </td>
+    </tr>
+  );
+  // }
+};
+
+export default ProductItem;

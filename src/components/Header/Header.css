@@ -1,0 +1,38 @@
+.profile-picture {
+  width: 50px;
+  height: 50px;
+}
+
+#cart-amount {
+  background: red;
+  color: white;
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1200px) {
+  .row {
+    --bs-gutter-x: 3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .col-xs-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+  .pt-xs-4 {
+    padding-top: 2rem !important;
+  }
+}
+
+@media (max-width: 484px) {
+  .d-xs-none {
+    display: none;
+  }
+}
