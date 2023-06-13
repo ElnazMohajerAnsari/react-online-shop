@@ -1,10 +1,8 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import ProductItem from "../../components/ProductInCard/ProductItem";
 import CartContext from "../../store/cart-context";
 
 const ShoppingCartPage = React.memo(() => {
-  // const [isMobile, setIsMobile] = useState(false);
-
   const cartCtx = useContext(CartContext);
 
   const totalAmount = `${cartCtx.totalAmount.toFixed(2)}`;
@@ -35,21 +33,6 @@ const ShoppingCartPage = React.memo(() => {
       index={index}
     />
   ));
-  //------------------------------------------------
-
-  useEffect(() => {
-    const handleResize = () => {
-      // setIsMobile(window.innerWidth < 640); // Change the screen size condition as per your needs
-    };
-
-    handleResize(); // Call the function initially to set the initial isMobile value
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <div className="w-full mx-auto p-5">
