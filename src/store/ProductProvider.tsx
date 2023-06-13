@@ -20,7 +20,7 @@ type ActionType = {
 };
 
 const defaultProductState: ProductState = {
-  items: [];
+  items: [],
 };
 
 const productReducer = (state: ProductState, action: ActionType) => {
