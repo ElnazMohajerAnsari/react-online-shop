@@ -21,8 +21,8 @@ const ProductItem = (props: any): JSX.Element => {
             <div className="rounded-full bg-red-500 text-white w-6 h-6 flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="12"
+                height="12"
                 fill="currentColor"
                 className="bi bi-dash-circle color-white"
                 viewBox="0 0 16 16"
