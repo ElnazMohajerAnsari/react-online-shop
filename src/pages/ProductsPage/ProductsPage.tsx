@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import ProductItem from "../../components/Product/ProductItem";
 import Category from "../../components/Category/Category";
 import SearchBar from "../../components/SearchBar/SearchBar";
