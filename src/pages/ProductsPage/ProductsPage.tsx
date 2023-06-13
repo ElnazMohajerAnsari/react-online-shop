@@ -2,31 +2,60 @@ import React, { useState, useEffect, useCallback } from "react";
 import ProductItem from "../../components/Product/ProductItem";
 import Category from "../../components/Category/Category";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import ProductContext from "../../store/product-context";
 
 let productsList: any[];
 let category = "";
 
 const ProductsPage = (props: any) => {
+  const productCtx = useContext(ProductContext);
+
   const [list, setList] = useState<Array<any>>([]);
-  // const [productsList, setProductsList] = useState<any[]>([]);
+
   const [categories, setCategories] = useState<Array<any>>([]);
 
-  // const getApiData = useCallback((response: any) => {
   const getApiData = useCallback(async () => {
     const response = await fetch("https://fakestoreapi.com/products").then(
       (res) => res.json()
     );
-
     setList(convert(response));
     productsList = convert(response);
-    // setProductsList(convert(response));
-    console.log("llll");
+    addProductsHandler();
     passCategories();
   }, []);
 
+  const addProductsHandler = () => {
+    productsList.forEach(function (product) {
+      productCtx.addItem({
+        id: product.props.id,
+        title: product.props.title,
+        description: product.props.description,
+        image: product.props.image,
+        price: product.props.price,
+        category: product.props.category,
+      });
+    });
+  };
+
+  const productItems = productCtx.items.map((item) => (
+    <ProductItem
+      id={item.id}
+      title={item.title}
+      category={item.category}
+      image={item.image}
+      price={item.price}
+      description={item.description}
+    />
+  ));
+
   useEffect(() => {
-    getApiData();
-    // getApiData(props.getApiData);
+    if (productItems.length === 0) {
+      getApiData();
+    } else {
+      productsList = productItems;
+      setList([productsList]);
+      passCategories();
+    }
   }, []);
 
   const convert = (arr: any[]): any[] => {
