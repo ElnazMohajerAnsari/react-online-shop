@@ -12,7 +12,7 @@ const ProductItem = (props: any): JSX.Element => {
         {props.title.substring(0, 20)}...
       </td>
       <td className="text-center px-4 py-2 truncate">
-        {/* {item.description.substring(0, 40)}... */}
+        {/* {item.description.substring(0, 30)}... */}
         {props.category}
       </td>
       <td className="text-center px-4 py-2">
