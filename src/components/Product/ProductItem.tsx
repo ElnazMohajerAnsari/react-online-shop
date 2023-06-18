@@ -28,7 +28,7 @@ const ProductItem = (props: Product): JSX.Element => {
             className="absolute inset-0 object-contain w-full h-full"
           />
         </figure>
-        <div className="p-3 h-72">
+        <div className="p-3 h-64">
           <h3 className="product-title my-5 text-xl font-large line-clamp-1 xl:line-clamp-2">
             {props.title}
           </h3>
