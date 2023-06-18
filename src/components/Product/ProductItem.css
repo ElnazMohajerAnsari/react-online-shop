@@ -5,25 +5,11 @@ body {
 .product-title{
   overflow: hidden;
   text-overflow: ellipsis;
-  /* white-space: nowrap; */
-  display: block;
   font-weight:bold;
-  font-size: x-large;
 }
 
-.product-image {
-  background-color: #fbfbfb;
-  text-align: center;
-}
-
-.product-image img {
+img {
   object-fit: cover;
   height: 305px;
   display: inline;
-}
-
-@media (min-width: 1200px) {
-  .row {
-    --bs-gutter-x: 3rem;
-  }
 }

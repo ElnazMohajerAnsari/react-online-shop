@@ -19,19 +19,27 @@ const ProductItem = (props: Product): JSX.Element => {
   };
 
   return (
-     <article className="lg:w-1/3 px-12 lg:px-4 md:w-1/2 md:px-4 sm:px-4 mb-6">
-      <div className="flex flex-col mb-4 border shadow h-full">
-        <figure className="product-image">
-          <img src={props.image} alt="Product Image" />
+    <article className="lg:w-1/3 px-12 lg:px-4 md:w-1/2 md:px-4 sm:px-4 mb-6">
+      <div className="flex flex-col mb-4 border shadow h-full p-3">
+        <figure className="relative h-72">
+          <img
+            src={props.image}
+            alt="Product Image"
+            className="absolute inset-0 object-contain w-full h-full"
+          />
         </figure>
-        <section className="product-info p-6">
-          <p className="product-title">{props.title}</p>
-          <p className="text-start my-2 text-justify">{props.description}</p>
-          <div className="flex flex-row justify-between items-center mt-4">
-            <p>price {props.price}$</p>
-            <AddToCartButton id={props.id} onAddToCart={addToCartHandler} />
-          </div>
-        </section>
+        <div className="p-3 h-72">
+          <h3 className="product-title my-5 text-xl font-large line-clamp-1 xl:line-clamp-2">
+            {props.title}
+          </h3>
+          <p className="text-start my-2 text-justify text-gray-600 line-clamp-6">
+            {props.description}
+          </p>
+        </div>
+        <div className="flex flex-row justify-between items-center content-center mt-4 px-3">
+          <p>price {props.price}$</p>
+          <AddToCartButton id={props.id} onAddToCart={addToCartHandler} />
+        </div>
       </div>
     </article>
   );
