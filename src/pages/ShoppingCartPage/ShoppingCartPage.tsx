@@ -43,12 +43,12 @@ const ShoppingCartPage = /*React.memo(*/ () => {
             <table className="w-full table-auto min-w-min border-collapse border border-neutral-500">
               <thead className="bg-neutral-400">
                 <tr>
-                  <th className="font-normal text-white px-4 py-2">Number</th>
-                  <th className="font-normal text-white px-4 py-2">Title</th>
-                  <th className="font-normal text-white px-4 py-2">Category</th>
-                  <th className="font-normal text-white px-4 py-2">Quantity</th>
-                  <th className="font-normal text-white px-4 py-2">Price</th>
-                  <th className="font-normal text-white px-4 py-2">
+                  <th className="font-normal text-white px-3 py-2">Number</th>
+                  <th className="font-normal text-white px-3 py-2">Title</th>
+                  <th className="font-normal text-white px-3 py-2">Category</th>
+                  <th className="font-normal text-white px-3 py-2">Quantity</th>
+                  <th className="font-normal text-white px-3 py-2">Price</th>
+                  <th className="font-normal text-white px-3 py-2">
                     Total Price
                   </th>
                   <th></th>
@@ -59,11 +59,11 @@ const ShoppingCartPage = /*React.memo(*/ () => {
               </tbody>
               <tfoot className="md:h-20">
                 <tr>
-                  <td className="text-center px-4 py-2">Total</td>
+                  <td className="text-center px-3 py-2">Total</td>
                   <td className="text-center" colSpan={2}></td>
                   <td></td>
                   <td></td>
-                  <td className="text-center px-4 py-2">{totalAmount}$</td>
+                  <td className="text-center px-3 py-2">{totalAmount}$</td>
                   <td></td>
                 </tr>
               </tfoot>

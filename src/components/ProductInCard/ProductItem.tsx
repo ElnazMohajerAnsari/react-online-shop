@@ -6,15 +6,15 @@ const ProductItem = (props: any): JSX.Element => {
   };
 
   return (
-    <tr className="border border-neutral-500 md:h-20">
-      <td className="text-center px-4 py-2">{props.index + 1}</td>
-      <td className="text-center px-4 py-2 truncate">
+    <tr className="border border-neutral-500 h-16">
+      <td className="text-center px-3 py-2">{props.index + 1}</td>
+      <td className="text-center px-3 py-2 truncate">
         {props.title.substring(0, 20)}...
       </td>
-      <td className="text-center px-4 py-2 truncate">
+      <td className="text-center px-3 py-2 truncate">
         {props.category}
       </td>
-      <td className="text-center px-4 py-2">
+      <td className="text-center px-3 py-2">
         <div className="flex items-center justify-center">
           <button onClick={props.onDecrease}>
             <div className="rounded-full bg-red-500 text-white w-6 h-6 flex items-center justify-center">
@@ -57,11 +57,11 @@ const ProductItem = (props: any): JSX.Element => {
           </button>
         </div>
       </td>
-      <td className="text-center px-4 py-2">{props.price}$</td>
-      <td className="text-center px-4 py-2">
+      <td className="text-center px-3 py-2">{props.price}$</td>
+      <td className="text-center px-3 py-2">
         {calculateTotalPrice().toFixed(2)}$
       </td>
-      <td className="text-center px-4 py-2">
+      <td className="text-center px-3 py-2">
         <button onClick={props.onDelete}>
           <div className="rounded-full bg-red-500 text-white w-6 h-6 flex items-center justify-center">
             <svg
