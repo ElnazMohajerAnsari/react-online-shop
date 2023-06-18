@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import ProductItem from "../../components/ProductInCard/ProductItem";
 import CartContext from "../../store/cart-context";
 
-const ShoppingCartPage = React.memo(() => {
+const ShoppingCartPage = /*React.memo(*/ () => {
   const cartCtx = useContext(CartContext);
 
   const totalAmount = `${cartCtx.totalAmount.toFixed(2)}`;
@@ -21,6 +21,7 @@ const ShoppingCartPage = React.memo(() => {
 
   const productItems = cartCtx.items.map((item, index) => (
     <ProductItem
+      key={item.id}
       id={item.id}
       title={item.title}
       category={item.category}
@@ -72,6 +73,6 @@ const ShoppingCartPage = React.memo(() => {
       </div>
     </div>
   );
-});
+}; /*)*/
 
 export default ShoppingCartPage;

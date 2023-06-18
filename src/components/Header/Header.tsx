@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect, useCallback } from "react";
 import "./Header.css";
 import HeaderCartLink from "./HeaderCartLink";

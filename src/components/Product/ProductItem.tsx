@@ -1,10 +1,10 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useContext } from "react";
 import "./ProductItem.css";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 import CartContext from "../../store/cart-context";
+import Product from "../../obj/Product";
 
-const ProductItem = (props: any): JSX.Element => {
+const ProductItem = (props: Product): JSX.Element => {
   const cartCtx = useContext(CartContext);
 
   const addToCartHandler = (amount: number) => {
@@ -20,7 +20,7 @@ const ProductItem = (props: any): JSX.Element => {
 
   return (
      <article className="lg:w-1/3 px-12 lg:px-4 md:w-1/2 md:px-4 sm:px-4 mb-6">
-      <div className="flex flex-col justify-center mb-4 border shadow h-full">
+      <div className="flex flex-col mb-4 border shadow h-full">
         <figure className="product-image">
           <img src={props.image} alt="Product Image" />
         </figure>

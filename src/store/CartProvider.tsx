@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { useReducer } from "react";
 import CartContext from "./cart-context";
 
@@ -80,9 +81,9 @@ const cartReducer = (state: CartState, action: ActionType) => {
     );
     const existingItem = state.items[existingCartItemIndex];
     const updatedTotalAmount =
-      state.totalAmount - (existingItem.price * existingItem.amount);
-    let updatedItems: Item[];
-    updatedItems = state.items.filter((item) => item.id !== action.id);
+      state.totalAmount - existingItem.price * existingItem.amount;
+    // let updatedItems: Item[];
+    const updatedItems = state.items.filter((item) => item.id !== action.id);
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
@@ -92,7 +93,7 @@ const cartReducer = (state: CartState, action: ActionType) => {
   return defaultCartState;
 };
 
-const CartProvider = (props: React.PropsWithChildren<{}>) => {
+const CartProvider = (props: React.PropsWithChildren<object>) => {
   const [cartState, dispatchCartAction] = useReducer(
     cartReducer,
     defaultCartState

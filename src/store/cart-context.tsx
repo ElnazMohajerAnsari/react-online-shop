@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext } from "react";
 
 interface CartItemType {
@@ -20,9 +21,9 @@ interface CartContextType {
 const CartContext = createContext<CartContextType>({
   items: [],
   totalAmount: 0,
-  increaseItem: (item: CartItemType) => {},
-  decreaseItem: (id: string) => {},
-  deleteItem: (id: string) => {},
+  increaseItem: () => {},
+  decreaseItem: () => {},
+  deleteItem: () => {},
 });
 
 export default CartContext;

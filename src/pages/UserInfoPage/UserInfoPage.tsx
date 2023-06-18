@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const UserInfoPage = (props: any) => {
+const UserInfoPage = () => {
   const user = useLocation().state;
 
   return (

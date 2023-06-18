@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext } from "react";
 
 interface ProductItemType {
@@ -5,7 +6,7 @@ interface ProductItemType {
   title: string;
   description: string;
   category: string;
-  image: ImageBitmap;
+  image: string;
   price: number;
 }
 
@@ -16,7 +17,7 @@ interface ProductContextType {
 
 const ProductContext = createContext<ProductContextType>({
   items: [],
-  addItem: (item: ProductItemType) => {},
+  addItem: () => {},
 });
 
 export default ProductContext;

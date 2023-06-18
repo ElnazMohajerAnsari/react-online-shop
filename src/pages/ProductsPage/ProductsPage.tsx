@@ -6,7 +6,7 @@ import ProductContext from "../../store/product-context";
 
 let productsList: any[];
 
-const ProductsPage = (props: any) => {
+const ProductsPage = () => {
   const productCtx = useContext(ProductContext);
 
   const [list, setList] = useState<Array<any>>([]);
@@ -38,12 +38,13 @@ const ProductsPage = (props: any) => {
 
   const productItems = productCtx.items.map((item) => (
     <ProductItem
+      key={item.id}
       id={item.id}
       title={item.title}
+      description={item.description}
       category={item.category}
       image={item.image}
       price={item.price}
-      description={item.description}
     />
   ));
 
@@ -58,8 +59,9 @@ const ProductsPage = (props: any) => {
   }, []);
 
   const convert = (arr: any[]): any[] => {
-    let li = arr.map((p) => (
+    const li = arr.map((p) => (
       <ProductItem
+        key={p.id}
         id={p.id}
         title={p.title}
         image={p.image}
@@ -72,7 +74,7 @@ const ProductsPage = (props: any) => {
   };
 
   const filterByCategory = useCallback((selectedCategory: string) => {
-    let filteredList: any[] = [];
+    const filteredList: any[] = [];
     if (selectedCategory === "Category" || selectedCategory === "") {
       setList(productsList);
       return productsList;
@@ -92,7 +94,7 @@ const ProductsPage = (props: any) => {
   };
 
   const passCategories = () => {
-    let allCategories: string[] = [];
+    const allCategories: string[] = [];
     productsList.forEach(function (product) {
       if (!allCategories.includes(product.props.category)) {
         allCategories.push(product.props.category);
@@ -102,7 +104,7 @@ const ProductsPage = (props: any) => {
   };
 
   const filterBySearch = useCallback((input: string) => {
-    let matchedList: any[] = [];
+    const matchedList: any[] = [];
     input = input.toLowerCase().trim();
     if (input === undefined) {
       alert("Nothing has been entered to search!");

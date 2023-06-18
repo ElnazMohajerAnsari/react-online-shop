@@ -1,10 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import CartContext from "../../store/cart-context";
 import "./HeaderCartLink.css";
 import { Link } from "react-router-dom";
 
-const HeaderCartLink = (props: any) => {
-  const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
+const HeaderCartLink = () => {
   const cartCtx = useContext(CartContext);
 
   const { items } = cartCtx;
@@ -15,21 +14,6 @@ const HeaderCartLink = (props: any) => {
     },
     0
   );
-
-  useEffect(() => {
-    if (items.length === 0) {
-      return;
-    }
-    setBtnIsHighlighted(true);
-
-    const timer = setTimeout(() => {
-      setBtnIsHighlighted(false);
-    }, 300);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [items]);
 
   return (
     <Link to="/ShoppingCartPage" className="flex items-center">
