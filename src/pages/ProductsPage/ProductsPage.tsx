@@ -5,7 +5,6 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import ProductContext from "../../store/product-context";
 
 let productsList: any[];
-let category = "";
 
 const ProductsPage = (props: any) => {
   const productCtx = useContext(ProductContext);
@@ -72,27 +71,23 @@ const ProductsPage = (props: any) => {
     return li;
   };
 
-  const filterByCategory = useCallback(
-    (selectedCategory: string): any[] => {
-      let filteredList: any[] = [];
-      if (selectedCategory === "Category" || selectedCategory === "") {
-        setList(productsList);
-        return productsList;
-      } else {
-        productsList.forEach(function (product) {
-          if (product.props.category === selectedCategory) {
-            filteredList.push(product);
-          }
-        });
-      }
-      setList(filteredList);
-      return filteredList;
-    },
-    [productsList]
-  );
+  const filterByCategory = useCallback((selectedCategory: string) => {
+    let filteredList: any[] = [];
+    if (selectedCategory === "Category" || selectedCategory === "") {
+      setList(productsList);
+      return productsList;
+    } else {
+      productsList.forEach(function (product) {
+        if (product.props.category === selectedCategory) {
+          filteredList.push(product);
+        }
+      });
+    }
+    setList(filteredList);
+    return filteredList;
+  }, []);
 
   const handleChangeCategory = (selectedCategory: string) => {
-    category = selectedCategory;
     filterByCategory(selectedCategory);
   };
 
@@ -106,31 +101,28 @@ const ProductsPage = (props: any) => {
     setCategories(allCategories);
   };
 
-  const filterBySearch = useCallback(
-    (input: string) => {
-      let matchedList: any[] = [];
-      input = input.toLowerCase().trim();
-      if (input === undefined) {
-        alert("Nothing has been entered to search!");
-      } else {
-        filterByCategory(category).forEach(function (item) {
-          let title: string = item.props.title;
-          title = title.toLocaleLowerCase();
-          let category: string = item.props.category;
-          category = category.toLocaleLowerCase();
-          if (title.includes(input) || category.includes(input)) {
-            matchedList.push(item);
-          }
-        });
-        if (matchedList.length !== 0) {
-          setList(matchedList);
-        } else {
-          alert("Nothing found!");
+  const filterBySearch = useCallback((input: string) => {
+    let matchedList: any[] = [];
+    input = input.toLowerCase().trim();
+    if (input === undefined) {
+      alert("Nothing has been entered to search!");
+    } else {
+      productsList.forEach(function (item) {
+        let title: string = item.props.title;
+        title = title.toLocaleLowerCase();
+        let category: string = item.props.category;
+        category = category.toLocaleLowerCase();
+        if (title.includes(input) || category.includes(input)) {
+          matchedList.push(item);
         }
+      });
+      if (matchedList.length !== 0) {
+        setList(matchedList);
+      } else {
+        alert("Nothing found!");
       }
-    },
-    [filterByCategory]
-  );
+    }
+  }, []);
 
   const handleSearch = (searchInput: string) => {
     filterBySearch(searchInput);
