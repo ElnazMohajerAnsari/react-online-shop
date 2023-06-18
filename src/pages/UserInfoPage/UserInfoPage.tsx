@@ -6,7 +6,6 @@ const UserInfoPage = (props: any) => {
   const user = useLocation().state;
 
   return (
-    // min-h-screen
     <div className="p-6 bg-white flex items-center justify-center">
       <div className="container max-w-screen-lg mx-auto">
         <div className="bg-neutral-200 rounded shadow-lg p-4 px-4 md:p-8 mb-6 mt-6">

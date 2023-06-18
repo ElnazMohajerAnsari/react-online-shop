@@ -37,7 +37,6 @@ const Search = (props: any) => {
       <input
         type="search"
         id="search-input"
-        // className="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded border-start-0 border-gray-900 rounded-end"
         className="w-5/6 focus:outline-none"
         onChange={handleChangeInput}
         name="search"
