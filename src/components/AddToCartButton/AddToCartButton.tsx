@@ -1,6 +1,9 @@
 import React from "react";
 
-const AddToCartButton = (props: any) => {
+const AddToCartButton = (props: {
+  id: string;
+  onAddToCart: (amount: number) => void;
+}) => {
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     props.onAddToCart(1);

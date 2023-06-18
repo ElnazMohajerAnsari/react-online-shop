@@ -11,7 +11,7 @@ const ProductsPage = () => {
 
   const [list, setList] = useState<Array<any>>([]);
 
-  const [categories, setCategories] = useState<Array<any>>([]);
+  const [categories, setCategories] = useState<Array<string>>([]);
 
   const getApiData = useCallback(async () => {
     const response = await fetch("https://fakestoreapi.com/products").then(
