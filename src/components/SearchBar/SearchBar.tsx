@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 
 const Search = (props: any) => {
@@ -11,11 +12,18 @@ const Search = (props: any) => {
     event.preventDefault();
     props.handleSearch(searchInput);
   };
+  const handleSearchByEnter = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    props.handleSearch(searchInput);
+  };
 
   return (
-    <div className="flex items-center border border-solid rounded-full border-black sm:my-5 w-full mt-5 lg:w-1/3 lg:mt-5 md:w-1/2 md:pl-4 pr-3 pl-3">
+    <form
+      onSubmit={handleSearchByEnter}
+      className="flex items-center border border-solid rounded-full border-black sm:my-5 w-full mt-5 lg:w-1/3 lg:mt-5 md:w-1/2 md:pl-4 pr-3 pl-3"
+    >
       <button
-        type="button"
+        type="submit"
         id="search-btn"
         onClick={handleSearch}
         className="flex-none p-2 border-gray-900"
@@ -42,7 +50,7 @@ const Search = (props: any) => {
         name="search"
         value={searchInput}
       />
-    </div>
+    </form>
   );
 };
 
