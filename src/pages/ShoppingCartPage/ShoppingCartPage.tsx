@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useContext, useState, useEffect } from "react";
 import ProductItem from "../../components/ProductInCard/ProductItem";
 import CartContext from "../../store/cart-context";

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect, useCallback, useContext } from "react";
 import ProductItem from "../../components/Product/ProductItem";
 import Category from "../../components/Category/Category";

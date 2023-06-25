@@ -5,7 +5,6 @@ class Product {
   category: string;
   image: string;
   price: number;
-  // amount: number
 
   constructor(
     id: string,
@@ -21,7 +20,6 @@ class Product {
     this.category = category;
     this.image = image;
     this.price = price;
-    // this.amount = 0
   }
 }
 
